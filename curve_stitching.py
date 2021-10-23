@@ -62,7 +62,7 @@ for function in functions:
         # graph the line
         graph_line(line)
 
-# add grid and show
+# add grid make it square and display
 pp.gca().set_aspect('equal', adjustable='box')
 pp.grid()
 pp.show()
