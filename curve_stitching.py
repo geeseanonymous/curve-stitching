@@ -45,11 +45,13 @@ for function in functions:
     # number of lines between each point
     lines = 25
 
-    # take the set of integers in [-x_limit * lines, x_limit * lines]
+    # take the set of integers in [x_bottom * lines, x_top * lines]
     # scale it down by lines to get the integers in that range
     # with (lines) points in between each integer point
     for x0 in [i/lines for i in range(x_bottom * lines, (x_top+1) * lines)]:
+        # all lines are of the form
         # y = m(x - x0) + y0
+        # where the line is a tangent to the point (x0, y0) on the curve
 
         # compute gradient at the point
         m = f_prime(x0)
