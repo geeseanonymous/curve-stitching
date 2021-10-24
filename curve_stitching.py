@@ -1,3 +1,5 @@
+# https://github.com/geeseanonymous
+
 import matplotlib.pyplot as pp
 import numpy as np
 import sympy as sp
