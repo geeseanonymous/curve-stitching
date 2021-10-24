@@ -4,6 +4,8 @@ import matplotlib.pyplot as pp
 import numpy as np
 import sympy as sp
 
+
+# graph a line given its equation
 def graph_line(func):
     # take the values at the 2 limits
     # the line will extend until those 2 points
@@ -21,13 +23,17 @@ def graph_line(func):
     pp.plot(x_values, y_values)
 
 # upper and lower limits for x values
-x_bottom = -3
-x_top = 3
+x_bottom = -10
+x_top = 10
 
 # limit for x and y axes when displayed
 # (can zoom and move around in the graph window so kinda irrelevant)
 pp.xlim(-2, 2)
 pp.ylim(-2, 2)
+
+# number of lines between each point
+# or "accuracy" of graph
+lines = 20
 
 x = sp.Symbol('x')
 
@@ -35,7 +41,7 @@ x = sp.Symbol('x')
 # multiple functions work to represent functions of both x and y
 # e.g. for a x^2 + y^2 = 1 put [sqrt(1 - x^2), -sqrt(1 - x^2)] to plot both sides
 # for y = f(x) functions just put the function in the list
-functions = [x*x*x]
+functions = [sp.exp(x)]
 for function in functions:
     dx = sp.diff(function)  # derivative of input function
 
@@ -43,9 +49,6 @@ for function in functions:
     # to make functions callable
     f = sp.lambdify(x, function)
     f_prime = sp.lambdify(x, dx)
-
-    # number of lines between each point
-    lines = 25
 
     # take the set of integers in [x_bottom * lines, x_top * lines]
     # scale it down by lines to get the integers in that range
@@ -68,6 +71,8 @@ for function in functions:
 pp.gca().set_aspect('equal', adjustable='box')
 pp.grid()
 pp.show()
+
+
 
 
 
